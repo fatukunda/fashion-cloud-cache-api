@@ -11,15 +11,18 @@ var _express = _interopRequireDefault(require("express"));
 
 var _dotenv = _interopRequireDefault(require("dotenv"));
 
+var _cacheRouter = _interopRequireDefault(require("./routes/cacheRouter"));
+
 _dotenv["default"].config();
 
 require('./database');
 
 var app = (0, _express["default"])();
 app.use(_express["default"].json());
+app.use(_cacheRouter["default"]);
 app.get('/', function (req, res) {
   res.send({
-    message: 'Welcome to Fashion Cloud Cache-API'
+    message: 'Welcome to Fashion Cloud Cache-API.'
   });
 });
 var _default = app;
