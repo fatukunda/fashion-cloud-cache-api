@@ -1,0 +1,37 @@
+{
+  "name": "fashion-cloud-cache-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Frank Atukunda",
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon --exec babel-node ./src/index.js",
+    "start": "NODE_ENV=production node ./build/index.js",
+    "build": "rm -rf ./build && babel -d ./build ./src -s",
+    "test": "NODE_ENV=testing nyc --reporter=html --reporter=text mocha --require @babel/register ./src/tests --timeout 20000 --exit",
+    "coverage": "yarn test && nyc report --reporter=text-lcov | coveralls "
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.2",
+    "mongoose": "^5.8.9",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "@babel/runtime": "^7.8.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "mocha": "^7.0.0",
+    "nyc": "^15.0.0"
+  }
+}
